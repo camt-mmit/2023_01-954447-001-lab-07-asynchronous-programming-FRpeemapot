@@ -1,0 +1,6 @@
+<app-profile-view *ngIf="data$ | async as data" />
+    <app-profile-view [data]=""data === 'undefined' ? undefined : data" />
+</ng-container>
+
+
+
