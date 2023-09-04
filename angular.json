@@ -3,7 +3,7 @@
   "version": 1,
   "cli": {
     "packageManager": "yarn",
-    "analytics": "5539a466-a6d4-469f-b983-57af921ab6e7",
+    "analytics": "52aea6f4-18b6-4b3a-a5b7-af0fa8cd118c",
     "schematicCollections": [
       "@angular-eslint/schematics"
     ]
@@ -120,6 +120,9 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

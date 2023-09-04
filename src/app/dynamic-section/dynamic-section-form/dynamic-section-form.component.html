@@ -1,0 +1,38 @@
+<form [formGroup]="formgroup">
+<ng-container formArrayName="data">
+    <button type="button" (click)="addsection()">Add Section</button>
+<section *ngFor="
+    let formArray of formgroup.controls.data.controls;
+    let sectionIndex = index 
+    "
+    [formArrayName]="sectionIndex"
+>
+    <header>
+        <button type="button" (click)="addInput(formArray)">Add</button>
+            <h2>
+                Section <span>{{ sectionIndex + 1 }}</span>
+            </h2>
+            <button type="button" (click)="removesection(sectionIndex)">X</button>
+        
+    </header>
+    <div class="app-cmp-inputs-list">
+        <ng-container *ngFor="let formcontrol of formArray.controls; let inputIndex = index">
+            <label for="app-inp-{{ sectionIndex }} - {{ inputIndex }}"
+            >Input {{ inputIndex  + 1}}</label
+            >
+            <input
+            id="app-inp-{{ sectionIndex }}-{{ inputIndex }}" 
+            type="number" [formControlName]="inputIndex" />
+
+            <button
+            type="button"
+            [disabled]="formArray.length === 1"
+            (click)="removeInput(formArray, inputIndex)"
+            >
+        X
+        </button>
+        </ng-container>
+    </div>
+</section>
+</ng-container>
+</form>
